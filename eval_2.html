@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="./css/form.css">
+    <script src="./js/eval_2.js"></script>
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        
+        <div class="row formulario_principal">
+            <div class="col-12">
+                
+                <form id="miFormulario" novalidate>
+                    <h1 class="display-5 fw-normal mb-4" style="font-family: sans-serif;">Formulario de Registro</h1>
+                    <p class="text-muted mb-4">Los campos marcados con asterisco (*) son obligatorios.</p>
+                    
+                    <input type="hidden" id="input_oculto" value="id_db">
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="nombre_completo" class="form-label">* Nombre Completo:</label>
+                            <input class="form-control" type="text" id="nombre_completo" placeholder="Nombre completo" onchange="elementoValido();">
+                            <div class="invalid-feedback">Nombre completo es obligatorio.</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="rut" class="form-label">* Rut:</label>
+                            <input class="form-control" type="text" id="rut" placeholder="Ingrese su rut" onchange="elementoValido();">
+                            <div class="invalid-feedback">Rut es obligatorio.</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="fecha_nac" class="form-label">Fecha de Nacimiento:</label>
+                            <input class="form-control" type="text" id="fecha_nac" placeholder="/  /" onchange="elementoValido();">
+                            <div class="invalid-feedback">Formato incorrecto.</div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="cv" class="form-label">Curriculum Vitae:</label>
+                            <input class="form-control" type="file" id="cv" onchange="elementoValido();">
+                            <div class="invalid-feedback">Solo archivos .pdf o .docx.</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="form-label">* Email:</label>
+                            <input class="form-control" type="text" id="email" placeholder="Ingrese su email" onchange="elementoValido();">                        
+                            <div class="invalid-feedback">Email obligatorio.</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="genero" class="form-label">Género:</label>
+                            <select id="genero" class="form-select">
+                                <option value="">Seleccione...</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="password" class="form-label">* Contraseña:</label>
+                            <input class="form-control" type="password" id="password" placeholder="********" onchange="elementoValido();">
+                            <div class="invalid-feedback">Debe tener entre 8 y 12 caracteres.</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="repetir_password" class="form-label">* Repetir Contraseña:</label>
+                            <input class="form-control" type="password" id="repetir_password" placeholder="********" onchange="elementoValido();">
+                            <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12 text-end">
+                            <input type="button" onclick="limpiarFormulario();" class="btn btn-light border me-2" value="Cancelar" style="background-color: #fff;">
+                            <input type="button" onclick="validarFormulario();" class="btn btn-primary px-4" value="Guardar">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
